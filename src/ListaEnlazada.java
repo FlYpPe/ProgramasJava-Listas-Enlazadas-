@@ -1,21 +1,4 @@
 
-/*
- * 1) Crear lista enlazada
- * 2) Agregar elemento
- * 
- * 		2a) Al inicio
- * 		2b) Al final
- * 		2c) En posicion especifica
- * 
- * 3) Eliminar elemento
- * 4) Recorrer lista
- * 5) Buscar elemento
- * 
- * 6) Vacia
- * 7) Cantidad de elementos
- * 8) Vaciar lista
- */
-
 public class ListaEnlazada {
 
 	Nodo nodoInicio;
@@ -133,4 +116,29 @@ public class ListaEnlazada {
 		
 	}
 	
-}// class ListaEnlazada
+	public String mostrarPromedio(ListaEnlazada l) {
+		double promedio = 0;
+		Nodo nodoActual = l.nodoInicio;
+		int cont = 0;
+		while(nodoActual.getEnlace()!= null) {
+			promedio = promedio + nodoActual.getDato();
+			nodoActual = nodoActual.getEnlace();
+			cont+=1;
+		}
+		promedio = promedio/cont;
+		String retorno = "";
+		if (promedio<10) {
+			retorno = promedio + "-" + "Congelacion";
+		} else if(promedio<20){
+			retorno = promedio + "-" + "Frio";
+		}else if (promedio<30) {
+			retorno = promedio + "-" + "Normal";
+		}else if (promedio<40) {
+			retorno = promedio + "-" + "Alta";
+		}
+		return retorno;
+		
+	}
+	
+
+}
